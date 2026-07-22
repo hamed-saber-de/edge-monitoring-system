@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Edge Monitoring System</title>
+
+    <meta http-equiv="refresh" content="0.2">
+
+    <style>
+
+        body {
+
+            background-color: #111;
+            font-family: Arial;
+            color: white;
+
+            margin: 0;
+            padding: 0;
+        }
+
+        .title {
+
+            text-align: center;
+
+            font-size: 45px;
+
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        .main-container {
+
+            display: flex;
+
+            justify-content: center;
+            align-items: flex-start;
+
+            gap: 120px;
+        }
+
+        /* LEFT SIDE */
+
+        .left-panel {
+
+            display: flex;
+            flex-direction: column;
+
+            gap: 40px;
+        }
+
+        .card {
+
+            width: 320px;
+            height: 180px;
+
+            background-color: #222;
+
+            border-radius: 20px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+            align-items: center;
+
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+        }
+
+        .label {
+
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .value {
+
+            font-size: 55px;
+            font-weight: bold;
+        }
+
+        /* RIGHT SIDE */
+
+        .right-panel {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 60px;
+
+            margin-top: 30px;
+        }
+
+        .indicator {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 25px;
+
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .led {
+
+            width: 90px;
+            height: 90px;
+
+            border-radius: 50%;
+
+            box-shadow: 0px 0px 25px rgba(255,255,255,0.2);
+        }
+
+        .status-led {
+
+            background-color: {{ status_color }};
+        }
+
+        .warning-led {
+
+            background-color: {{ warning_color }};
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="title">
+
+        EDGE MONITORING SYSTEM
+
+    </div>
+
+    <div class="main-container">
+
+        <!-- LEFT SIDE -->
+
+        <div class="left-panel">
+
+            <div class="card">
+
+                <div class="label">
+
+                    TEMPERATURE
+
+                </div>
+
+                <div class="value">
+
+                    {{ temperature }} °C
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="label">
+
+                    HUMIDITY
+
+                </div>
+
+                <div class="value">
+
+                    {{ humidity }} %
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+
+        <div class="right-panel">
+
+            <div class="indicator">
+
+                <div>
+
+                    STATUS: {{ status_text }}
+
+                </div>
+
+                <div class="led status-led"></div>
+
+            </div>
+
+            <div class="indicator">
+
+                <div>
+
+                    ALARM: {{ warning_text }}
+
+                </div>
+
+                <div class="led warning-led"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
